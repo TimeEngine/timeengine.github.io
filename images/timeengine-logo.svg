@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient>
+<stop offset="0"/>
+<stop offset="1" stop-color="#fff"/>
+</linearGradient>
+</defs>
+<path d="m9.10861-1.10454 4.58451,4.80281 7.4225-5.02114 5.89436,2.61976 1.96478,8.60451 6.33096-.05815 1.74649-8.82866 5.89436-2.33746 7.42251,4.80285 3.49296-4.80285-8.42364-7.94954c-21.59058,19.8029-38.85934-11.87559-20.31421-24.64437l-3.57194-2.3356-6.7676-4.30227-4.67494,3.83913 4.23832,7.23072-2.4014,5.89436-8.27025,1.37382-.02552,6.26702 8.51409,2.1831 2.34682,5.73065-5.40317,6.93132z" fill="#333" fill-rule="evenodd" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width=".375" transform="matrix(1.099401,.000000,.000000,1.099401,-1.362191,47.61428)"/>
+<path d="m58.8423,36.96693a27.35177,27.35177 0 1,0 -54.70354,0 27.3518,27.3518 0 1,0 54.70354-3e-005l-27.35177,3e-005z" fill="#b3b3b3" fill-rule="evenodd" stroke="#333" stroke-width="4.23698" transform="matrix(.737553,.000000,.000000,.737553,10.76319,-.674380)"/>
+<path d="m33.85829,26.37985v-14.44601" fill="none" stroke="#4c4c4c" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.75"/>
+<path d="m34.50783,26.66098 9.97165,5.75714" fill="none" stroke="#4c4c4c" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.75"/>
+<path d="m31.49053,32.28834a2.3393,2.3393 0 1,0 -4.67859,0 2.3393,2.3393 0 1,0 4.67857-4e-005l-2.33927,4e-005z" fill="#333" fill-rule="evenodd" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.20004" transform="matrix(.781241,.000000,.000000,.781241,11.21499,1.365717)"/>
+</svg>
