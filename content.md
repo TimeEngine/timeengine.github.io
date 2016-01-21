@@ -752,7 +752,6 @@ __bc: 15
               { data: { source: 'c', target: 'b' } },
             	{ data: { source: 'd', target: 'b' } },
               { data: { source: 'e', target: 'a' } },
-              { data: { source: 'e', target: 'a' } },
               { data: { source: 'e', target: 'b' } },
               { data: { source: 'e', target: 'c' } },
               { data: { source: 'e', target: 'd' } },
