@@ -16,7 +16,7 @@
 
 [david-dm-dev-image]:https://david-dm.org/kenokabe/timeengine/dev-status.svg
 
-[![NPM](https://nodei.co/npm/timeengine.png?downloads=true)](https://nodei.co/npm/timeengine/)
+[https://www.npmjs.com/package/timeengine](https://www.npmjs.com/package/timeengine)
 
 [https://github.com/TimeEngine/timeengine](https://github.com/TimeEngine/timeengine)
 
@@ -824,18 +824,25 @@ TimeEngine has only a few api, so easy to learn.
 
 ### Top level API
 
-#### `__([[dependentSeqs]][,boolen_store])`
+#### `__([dependentSeqs][, store])`
 
-Constructor of `Seq`
+Constructor of TimeEngine `Seq`
 
-#### `__.intervalSeq(Immutable.Seq, int_interval)`
+- `dependentSeqs` Array
+- `store` Boolean
 
-Constructor of `Seq` that depends on time of real world with an interval of `int_interval`.
+#### `__.intervalSeq(Immutable.Seq, interval)`
+
+Constructor of TimeEngine `Seq` that depends on time of real world with an interval of `interval`.
+
+- `Immutable.Seq` [Immutable Seq](https://facebook.github.io/immutable-js/docs/#/Seq)  
+- `interval` Number
 
 #### `__.log.t = val`
 
 Show log `val`
 
+- `val` Object
 
 
 ### Sequence level API
@@ -843,6 +850,8 @@ Show log `val`
 #### `Seq.__(function)`
 
 Attach function that is evaluated when the sequence dependencies are fulfilled.
+
+- `function` Function
 
 seq.eqs = [f1, f2, f3];
 
@@ -860,4 +869,6 @@ seq.valOnT = seq.evalEqs(tval);
 
 #### `Seq.log([val])`
 
-Show log `val` and `seq`.
+Show log `val` and TimeEngine `Seq`.
+
+- `val` Object
