@@ -20,7 +20,7 @@
 
 [https://github.com/TimeEngine/timeengine](https://github.com/TimeEngine/timeengine)
 
-##### TimeEngine is a tiny, simple yet versatile library that provides first class reactive components with smart dependency resolving capability in JavaScript. Built for a new programming paradigm: Dependency driven Functional Reactive Programming (DFRP).
+##### TimeEngine is a tiny, simple yet versatile library that provides first class reactive value 'over time' with smart dependency resolving capability in JavaScript. Built for a new programming paradigm: Dependency driven Functional Reactive Programming (DFRP).
 
 ### Install
 
