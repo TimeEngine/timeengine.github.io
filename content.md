@@ -824,13 +824,13 @@ TimeEngine has only a few api, so easy to learn.
 
 ### Top level API
 
-#### `__([dependentSeqs], boolen_store)`
+#### `__([[dependentSeqs]][,boolen_store])`
 
 Constructor of `Seq`
 
 #### `__.intervalSeq(Immutable.Seq, int_interval)`
 
-Constructor of `Seq` that depends on time of real world with interval of `int_interval`.
+Constructor of `Seq` that depends on time of real world with an interval of `int_interval`.
 
 #### `__.log.t = val`
 
@@ -858,6 +858,6 @@ seq.evalEqs = (val) => {
 seq.valOnT = seq.evalEqs(tval);
 ```
 
-#### `Seq.log(val)`
+#### `Seq.log([val])`
 
 Show log `val` and `seq`.
