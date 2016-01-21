@@ -578,8 +578,8 @@ const t = __
 #### Equations for `x` and `y` depend on `t`
 
 ```js
-const x = t.__((t) => V0 * Math.cos(THETA) * t);
-const y = t.__((t) => V0 * Math.sin(THETA) * t - 1 / 2 * G * Math.pow(t, 2));
+const x = __([t]).__(([t]) => V0 * Math.cos(THETA) * t);
+const y = __([t]).__(([t]) => V0 * Math.sin(THETA) * t - 1 / 2 * G * Math.pow(t, 2));
 ```
 
 #### Cordinate `[x, y]` is to be updated synchronously (atomic update)
