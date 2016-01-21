@@ -78,7 +78,7 @@ code.  `Demo #1`
 
 Timer
 
-##### A Stateful Component (Sample Code from [the official React Site]([https://facebook.github.io/react/](https://facebook.github.io/react/))
+##### A Stateful Component (Sample Code from [the official React Site](https://facebook.github.io/react/))
 
 ```js
 var Timer = React.createClass({
