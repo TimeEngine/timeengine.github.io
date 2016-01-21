@@ -1,4 +1,4 @@
-/*global React __ Immutable __Component*/
+/*global React __ Immutable __Element*/
 
 //this file need to bre transpiled to js
 //npm test
