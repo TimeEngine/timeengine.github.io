@@ -66,7 +66,7 @@ For instance:
 - Refactor a complicated stateful [React](https://facebook.github.io/react/) code to a Damn simple statelss
 code.  `Demo #1`
 
-- Replace [other complicated FRP libraries](https://baconjs.github.io/) to easy TimeEngine. `Demo #2`
+- Replace other complicated FRP libraries to easy TimeEngine. `Demo #2`
 
 - Write a clean Declarative code to animate physics equations with time-sequence. `Demo #3`
 
@@ -129,7 +129,7 @@ const TimerComponent = () => {
 
 Simple counter
 
-#####  Bacon.js + jQuery
+##### [Bacon.js](https://baconjs.github.io/) + jQuery
 
 ```html
 <h3> Simple counter </h3>
