@@ -1,6 +1,6 @@
-/*global React ReactDOM __ Immutable __Component*/
+/*global React ReactDOM __ Immutable __Element*/
 
-//const __Component = require("timeengine-react");
+//const __Element = require("timeengine-react");
 //this code is required to transpile babel site
 
 (() => {
@@ -9,15 +9,15 @@
   // `.intervalSeq` is to map Immutable-js infinite Sequence
   //                       on TimeEngine infinite Sequence
   // map natural numbers sequence on intervalSeq(1000)
-  const TimerComponent = () => {
-    return __Component(__
+  const TimerElement = () => {
+    return __Element(__
       .intervalSeq(Immutable.Range(), 1000)
       .__((count) => (__.log.t = count)) //console.log
       .__((count) => (<div>Timer : {count}</div>)));
   };
 
 
-  const CounterComponentStateHistory = () => {
+  const CounterElementStateHistory = () => {
     const __updn = __(true); //1 or -1 or initially 0
     const __seqEl = __([__updn])
       .__(([updn]) => (__updn
@@ -32,11 +32,11 @@
       onClick={() => (__updn.t = 1)}>{"Up"}</button>
                <button
       onClick={() => (__updn.t = -1)}>{"Down"}</button>
-               &nbsp;&nbsp;{__Component(__seqEl)}&nbsp;&nbsp;
+               &nbsp;&nbsp;{__Element(__seqEl)}&nbsp;&nbsp;
               </span>);
   };
 
-  const CounterReloadComponent = () => {
+  const CounterReloadElement = () => {
     const __clicked = __();
     const onClick = () => {
       __clicked.t = true;
@@ -45,14 +45,14 @@
       .intervalSeq(Immutable.Seq.of(true), 0)
       .__(onClick);
     const __seqEl = __([__clicked])
-      .__(() => (<span>{CounterComponentStateHistory()}</span>));
+      .__(() => (<span>{CounterElementStateHistory()}</span>));
     return (<div>
-              {__Component(__seqEl)}
+              {__Element(__seqEl)}
              <button onClick={onClick}>{"Reload"}</button>
             </div>);
   };
 
-  const CounterComponent = () => {
+  const CounterElement = () => {
     const __updn = __();
     const __count = __([__updn])
       .__(([updn]) => ((updn === 0) ? (0) : (__count.t + updn)));
@@ -67,14 +67,14 @@
       onClick={() => (__updn.t = 1)}>{"Up"}</button>
              <button
       onClick={() => (__updn.t = -1)}>{"Down"}</button>
-             &nbsp;&nbsp;{__Component(__seqEl)}&nbsp;&nbsp;
+             &nbsp;&nbsp;{__Element(__seqEl)}&nbsp;&nbsp;
              <button
       onClick={init}>{"Reset"}</button>
             </div>);
   };
 
 
-  const PhysicsComponent = () => {
+  const PhysicsElement = () => {
     //MKS system of units
     const V0 = 90.0; // m/s
     const DEG = 45; //degree
@@ -96,28 +96,28 @@
         cx = {50 + x * Drawscale} cy = {250 - y * Drawscale}/>
         </svg>
       </div>));
-    return __Component(__seqEl);
+    return __Element(__seqEl);
   };
 
-  const WorldComponent = () => {
+  const WorldElement = () => {
     const __clicked = __();
     const onClick = () => {
       __clicked.t = true;
     };
     const __seqEl = __([__clicked])
-      .__(() => (<div>{PhysicsComponent()}</div>));
+      .__(() => (<div>{PhysicsElement()}</div>));
 
     return (<div>
       <div><button onClick={onClick}>{"Physics Start"}</button></div>
-      {__Component(__seqEl)}
+      {__Element(__seqEl)}
            </div>
       );
   };
 
-  const mount0 = ReactDOM.render(<h3>{TimerComponent()}</h3>, document.getElementById('div0'));
+  const mount0 = ReactDOM.render(<h3>{TimerElement()}</h3>, document.getElementById('div0'));
 
-  const mount1 = ReactDOM.render(<div>{CounterComponent()}</div>, document.getElementById('div1'));
+  const mount1 = ReactDOM.render(<div>{CounterElement()}</div>, document.getElementById('div1'));
 
-  const mount2 = ReactDOM.render(<div>{WorldComponent()}</div>, document.getElementById('div2'));
+  const mount2 = ReactDOM.render(<div>{WorldElement()}</div>, document.getElementById('div2'));
 
 })();

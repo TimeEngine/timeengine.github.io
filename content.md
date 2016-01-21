@@ -104,11 +104,11 @@ var Timer = React.createClass({
 
 is refactored to   with `timeengine` + `timeengine-react`:
 
-##### A Stateless functional Component (Single statement code!!)
+##### A Stateless functional Element (Single statement code!!)
 
 ```js
-const TimerComponent = () => {
-  return __Component(__
+const TimerElement = () => {
+  return __Element(__
     .intervalSeq(Immutable.Range(), 1000)
     .__((count) => (__.log.t = count)) //console.log
     .__((count) => (<div>{"Timer : "}{count}</div>)));
@@ -165,7 +165,7 @@ counter.assign($('#counter'), 'text');
 
 
  ```js
- const CounterComponent = () => {
+ const CounterElement = () => {
    const __updn = __();
    const __count = __([__updn])
      .__(([updn]) => ((updn === 0) ? (0) : (__count.t + updn)));
@@ -180,12 +180,12 @@ counter.assign($('#counter'), 'text');
      onClick={() => (__updn.t = 1)}>{"Up"}</button>
             <button
      onClick={() => (__updn.t = -1)}>{"Down"}</button>
-            &nbsp;&nbsp;{__Component(__seqEl)}&nbsp;&nbsp;
+            &nbsp;&nbsp;{__Element(__seqEl)}&nbsp;&nbsp;
             <button
      onClick={init}>{"Reset"}</button>
            </div>);
  };
- const mount1 = ReactDOM.render(<div>{CounterComponent()}</div>, document.getElementById('div1'));
+ const mount1 = ReactDOM.render(<div>{CounterElement()}</div>, document.getElementById('div1'));
  ```
 
 <div id ="div1" class = "demo"/>
@@ -199,7 +199,7 @@ counter.assign($('#counter'), 'text');
 ![](http://timeengine.github.io/images/formula.png)
 
 ```js
-  const PhysicsComponent = () => {
+  const PhysicsElement = () => {
     //MKS system of units
     const V0 = 90.0; // m/s
     const DEG = 45; //degree
@@ -221,24 +221,24 @@ counter.assign($('#counter'), 'text');
         cx = {50 + x * Drawscale} cy = {250 - y * Drawscale}/>
         </svg>
       </div>));
-    return __Component(__seqEl);
+    return __Element(__seqEl);
   };
 
-  const WorldComponent = () => {
+  const WorldElement = () => {
     const __clicked = __();
     const onClick = () => {
       __clicked.t = true;
     };
     const __seqEl = __([__clicked])
-      .__(() => (<div>{PhysicsComponent()}</div>));
+      .__(() => (<div>{PhysicsElement()}</div>));
 
     return (<div>
       <div><button onClick={onClick}>{"Physics Start"}</button></div>
-      {__Component(__seqEl)}
+      {__Element(__seqEl)}
            </div>
       );
   };
-   const mount2 = ReactDOM.render(<div>{WorldComponent()}</div>, document.getElementById('div2'));
+   const mount2 = ReactDOM.render(<div>{WorldElement()}</div>, document.getElementById('div2'));
 //..........................
 
 ```

@@ -1,6 +1,6 @@
-/*global React ReactDOM __ Immutable __Component*/
+/*global React ReactDOM __ Immutable __Element*/
 
-//const __Component = require("timeengine-react");
+//const __Element = require("timeengine-react");
 //this code is required to transpile babel site
 
 "use strict";
@@ -46,8 +46,8 @@ var _slicedToArray = (function() {
   // `.intervalSeq` is to map Immutable-js infinite Sequence
   //                       on TimeEngine infinite Sequence
   // map natural numbers sequence on intervalSeq(1000)
-  var TimerComponent = function TimerComponent() {
-    return __Component(__.intervalSeq(Immutable.Range(), 1000).__(function(count) {
+  var TimerElement = function TimerElement() {
+    return __Element(__.intervalSeq(Immutable.Range(), 1000).__(function(count) {
       return __.log.t = count;
     }) //console.log
       .__(function(count) {
@@ -60,7 +60,7 @@ var _slicedToArray = (function() {
       }));
   };
 
-  var CounterComponentStateHistory = function CounterComponentStateHistory() {
+  var CounterElementStateHistory = function CounterElementStateHistory() {
     var __updn = __(true); //1 or -1 or initially 0
     var __seqEl = __([__updn]).__(function(_ref) {
       var _ref2 = _slicedToArray(_ref, 1);
@@ -103,12 +103,12 @@ var _slicedToArray = (function() {
         "Down"
       ),
       "  ",
-      __Component(__seqEl),
+      __Element(__seqEl),
       "  "
     );
   };
 
-  var CounterReloadComponent = function CounterReloadComponent() {
+  var CounterReloadElement = function CounterReloadElement() {
     var __clicked = __();
     var onClick = function onClick() {
       __clicked.t = true;
@@ -118,13 +118,13 @@ var _slicedToArray = (function() {
       return React.createElement(
         "span",
         null,
-        CounterComponentStateHistory()
+        CounterElementStateHistory()
       );
     });
     return React.createElement(
       "div",
       null,
-      __Component(__seqEl),
+      __Element(__seqEl),
       React.createElement(
         "button",
         {
@@ -135,7 +135,7 @@ var _slicedToArray = (function() {
     );
   };
 
-  var CounterComponent = function CounterComponent() {
+  var CounterElement = function CounterElement() {
     var __updn = __();
     var __count = __([__updn]).__(function(_ref3) {
       var _ref32 = _slicedToArray(_ref3, 1);
@@ -179,7 +179,7 @@ var _slicedToArray = (function() {
         "Down"
       ),
       "  ",
-      __Component(__seqEl),
+      __Element(__seqEl),
       "  ",
       React.createElement(
         "button",
@@ -191,7 +191,7 @@ var _slicedToArray = (function() {
     );
   };
 
-  var PhysicsComponent = function PhysicsComponent() {
+  var PhysicsElement = function PhysicsElement() {
     //MKS system of units
     var V0 = 90.0; // m/s
     var DEG = 45; //degree
@@ -239,10 +239,10 @@ var _slicedToArray = (function() {
           )
         );
       });
-    return __Component(__seqEl);
+    return __Element(__seqEl);
   };
 
-  var WorldComponent = function WorldComponent() {
+  var WorldElement = function WorldElement() {
     var __clicked = __();
     var onClick = function onClick() {
       __clicked.t = true;
@@ -251,7 +251,7 @@ var _slicedToArray = (function() {
       return React.createElement(
         "div",
         null,
-        PhysicsComponent()
+        PhysicsElement()
       );
     });
 
@@ -269,25 +269,25 @@ var _slicedToArray = (function() {
           "Physics Start"
         )
       ),
-      __Component(__seqEl)
+      __Element(__seqEl)
     );
   };
 
   var mount0 = ReactDOM.render(React.createElement(
     "h3",
     null,
-    TimerComponent()
+    TimerElement()
   ), document.getElementById('div0'));
 
   var mount1 = ReactDOM.render(React.createElement(
     "div",
     null,
-    CounterComponent()
+    CounterElement()
   ), document.getElementById('div1'));
 
   var mount2 = ReactDOM.render(React.createElement(
     "div",
     null,
-    WorldComponent()
+    WorldElement()
   ), document.getElementById('div2'));
 })();
