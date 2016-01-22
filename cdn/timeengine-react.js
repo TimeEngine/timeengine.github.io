@@ -1,4 +1,4 @@
-/*global React __ Immutable __Element*/
+/*global React timeengine __ Immutable __Element*/
 
 //this file need to bre transpiled to js
 //npm test
@@ -81,9 +81,15 @@ function _inherits(subClass, superClass) {
 (function() {
   'use strict';
 
-  //var React = require('react');
-  //var __ = require('timeengine');
-
+  var React = undefined;
+  var __ = undefined;
+  if (typeof module !== 'undefined' && module.exports) {
+    React = require("react");
+    __ = require("timeengine");
+  } else {
+    React = window.React;
+    __ = window.__;
+  }
   //***React state with life cycle is stateless sequence*****
   var __Element = function __Element(__seqEl) {
     var SeqComponent = (function(_React$Component) {
