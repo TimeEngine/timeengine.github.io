@@ -1,6 +1,6 @@
 /*global React timeengine __ Immutable __Element*/
 
-//this file need to bre transpiled to js
+//this file need to be transpiled to js
 //npm test
 'use strict';
 
@@ -22,13 +22,13 @@ var _createClass = (function() {
   };
 })();
 
-var _get = function get(_x, _x2, _x3) {
+var _get = function get(_x2, _x3, _x4) {
   var _again = true;
   _function:
   while (_again) {
-    var object = _x,
-      property = _x2,
-      receiver = _x3;
+    var object = _x2,
+      property = _x3,
+      receiver = _x4;
     _again = false;
     if (object === null)
       object = Function.prototype;
@@ -38,9 +38,9 @@ var _get = function get(_x, _x2, _x3) {
       if (parent === null) {
         return undefined;
       } else {
-        _x = parent;
-        _x2 = property;
-        _x3 = receiver;
+        _x2 = parent;
+        _x3 = property;
+        _x4 = receiver;
         _again = true;
         desc = parent = undefined; continue _function;
       }
@@ -82,9 +82,11 @@ function _inherits(subClass, superClass) {
   'use strict';
 
   var React = undefined;
+  var ReactDOM = undefined;
   var __ = undefined;
   if (typeof module !== 'undefined' && module.exports) {
     React = require("react");
+    ReactDOM = require("react-dom");
     __ = require("timeengine");
   } else {
     React = window.React;
@@ -92,6 +94,10 @@ function _inherits(subClass, superClass) {
   }
   //***React state with life cycle is stateless sequence*****
   var __Element = function __Element(__seqEl) {
+    var f = arguments.length <= 1 || arguments[1] === undefined ? function() {
+      return 0;
+    } : arguments[1];
+
     var SeqComponent = (function(_React$Component) {
       _inherits(SeqComponent, _React$Component);
 
@@ -108,6 +114,7 @@ function _inherits(subClass, superClass) {
           _this.setState({
             seqEl: val
           });
+          f(ReactDOM.findDOMNode(_this).children[0]);
         });
       }
 

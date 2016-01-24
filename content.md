@@ -107,8 +107,7 @@ is refactored to   with `timeengine` + `timeengine-react`:
 ##### A Stateless functional Element (Single statement code!!)
 
 ```js
-const TimerElement = () => {
-  return __Element(__
+const TimerElement = () => __Element(__
     .intervalSeq(Immutable.Range(), 1000)
     .__((count) => (__.log.t = count)) //console.log
     .__((count) => (<div>{"Timer : "}{count}</div>)));
