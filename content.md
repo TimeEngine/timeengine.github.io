@@ -110,7 +110,7 @@ is refactored to   with `timeengine` + `timeengine-react`:
 const TimerElement = () => __Element(__
     .intervalSeq(Immutable.Range(), 1000)
     .__((count) => (__.log.t = count)) //console.log
-    .__((count) => (<div>{"Timer : "}{count}</div>)));
+    .__((count) => (<div>{"Timer : "}{count}</div>)));node
 };
 ```
 
@@ -399,7 +399,7 @@ What is Reactive?
 							{ data: { id: 'b' } },
 						],
 						edges: [
-							{ data: { source: 'b', target: 'a' } },
+							{ data: { source: 'a', target: 'b' } },
 						]
 					},
 				});
@@ -469,8 +469,8 @@ __b: 2
               { data: { id: 'c' } },
 						],
 						edges: [
-							{ data: { source: 'c', target: 'a' } },
-            	{ data: { source: 'c', target: 'b' } },
+							{ data: { source: 'a', target: 'c' } },
+            	{ data: { source: 'b', target: 'c' } },
 						]
 					},
 				});
@@ -552,10 +552,10 @@ __c: 5
               { data: { id: '[x, y]' } },
 						],
 						edges: [
-							{ data: { source: 'x', target: 't' } },
-            	{ data: { source: 'y', target: 't' } },
-              { data: { source: '[x, y]', target: 'x' } },
-            	{ data: { source: '[x, y]', target: 'y' } },
+							{ data: { source: 't', target: 'x' } },
+            	{ data: { source: 't', target: 'y' } },
+              { data: { source: 'x', target: '[x, y]' } },
+            	{ data: { source: 'y', target: '[x, y]' } },
 						]
 					},
 				});
@@ -657,10 +657,10 @@ Dependencies are resolved on every `t` update cycle.
               { data: { id: 'bc' } },
 						],
 						edges: [
-							{ data: { source: 'ab', target: 'a' } },
-            	{ data: { source: 'ab', target: 'b' } },
-              { data: { source: 'bc', target: 'b' } },
-            	{ data: { source: 'bc', target: 'c' } },
+							{ data: { source: 'a', target: 'ab' } },
+            	{ data: { source: 'b', target: 'ab' } },
+              { data: { source: 'b', target: 'bc' } },
+            	{ data: { source: 'c', target: 'bc' } },
 						]
 					},
 				});
@@ -746,20 +746,20 @@ __bc: 15
               { data: { id: 'atomic' } },
 						],
 						edges: [
-							{ data: { source: 'b', target: 'a' } },
-            	{ data: { source: 'c', target: 'a' } },
-              { data: { source: 'c', target: 'b' } },
-            	{ data: { source: 'd', target: 'b' } },
-              { data: { source: 'e', target: 'a' } },
-              { data: { source: 'e', target: 'b' } },
-              { data: { source: 'e', target: 'c' } },
-              { data: { source: 'e', target: 'd' } },
+							{ data: { source: 'a', target: 'b' } },
+            	{ data: { source: 'a', target: 'c' } },
+              { data: { source: 'b', target: 'c' } },
+            	{ data: { source: 'b', target: 'd' } },
+              { data: { source: 'a', target: 'e' } },
+              { data: { source: 'b', target: 'e' } },
+              { data: { source: 'c', target: 'e' } },
+              { data: { source: 'd', target: 'e' } },
 
-              { data: { source: 'atomic', target: 'a' } },
-              { data: { source: 'atomic', target: 'b' } },
-              { data: { source: 'atomic', target: 'c' } },
-              { data: { source: 'atomic', target: 'd' } },
-              { data: { source: 'atomic', target: 'e' } },
+              { data: { source: 'a', target: 'atomic' } },
+              { data: { source: 'b', target: 'atomic' } },
+              { data: { source: 'c', target: 'atomic' } },
+              { data: { source: 'd', target: 'atomic' } },
+              { data: { source: 'e', target: 'atomic' } },
 						]
 					},
 				});
