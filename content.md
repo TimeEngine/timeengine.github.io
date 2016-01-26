@@ -1205,32 +1205,55 @@ In fact, when I discuss this time is still stuff of meta-physics, or philosophic
 Well, I just try to consider things in the world, and abstractively, oftem mathematically.
 They are just naive.
 
-That is why mutable, or immutable, or state argument is 遅々として進まない
+Time does not flow, it's immutable. The world is still.
 
-now we don't take the view, Time does not flow, it's immutable
-
-the world is still.
-
-So, I won't use a word stream, it is a word from Naïve realism, misconception and misleading, and make lots of confustion.
-
-
-Time flow concept in Naïve realism is simply a crap, and most harmful in programming.
-
+So, I won't use a word stream, it is a word from Naïve realism, misconception and misleading, and make lots of confusion.
 
 
 ## Physics is never be destructive
 
-Since programming is fundamentally mathematics, the world view of Naive reaalism does not fit.
+Since programming is fundamentally mathematics, the world view of Naive realism does not fit.
 
-Instead, since programming is mathematics, we employs the view of matehmatics for our world. that is called Physics.
+Instead, since programming is mathematics, we employs the view of mahtehmatics for our world. that is called "Physics".
 
 Timeline is `t`
 
 and
 
-Not `a` as a mutable value  
+Not `x` as a mutable value  
 
-But `a.t` as a immutable value.
+But `x.t` as a immutable value.
+
+## Physics Equations
+
+![](http://timeengine.github.io/images/formula.png)
+
+```js
+ const PhysicsElement = () => {
+   //MKS system of units
+   const V0 = 90.0; // m/s
+   const DEG = 45; //degree
+   const THETA = DEG / 180 * Math.PI; //radian
+   const G = 9.8; //gravity const
+   //t seconds elapsed 10msec time resolution
+   const t = __
+     .intervalSeq(Immutable.Range(), 10)
+     .__((count) => (count * 10 / 1000));
+   const x = __([t]).__(([t]) => V0 * Math.cos(THETA) * t);
+   const y = __([t]).__(([t]) => V0 * Math.sin(THETA) * t - 1 / 2 * G * Math.pow(t, 2));
+   //==================================
+   const Drawscale = 1; //1 dot = 1 meter
+   const __seqEl = __([x, y]) //atomic update
+     .__(([x, y]) => (
+     <div>
+       <svg height = "250"  width = "100%">
+           <circle r="2" fill="red"
+       cx = {50 + x * Drawscale} cy = {250 - y * Drawscale}/>
+       </svg>
+     </div>));
+   return __Element(__seqEl);
+ };
+```
 
 
 ## `setTimeout` and `setInterval` is not good
