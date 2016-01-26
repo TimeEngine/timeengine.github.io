@@ -1045,26 +1045,21 @@ In the sense, Spreadsheet language is Reactive Programming.
 
  Of course, to be exact, not everything does not have to be reactive. Static, constant, or immutable values do not have to be reactive object. With `timeengine`, every "mutable" objects becomes reactive and immutable, and you can easy write a clean Declarative code.
 
- ## TimeEngine Instance
+ ## TimeEngine provides first class reactive value 'over time' with smart dependency resolving capability in JavaScript
 
- ##`c = a + b` in reactive way
 
  ```js
-   var __ = require('timeengine');
+ const __a = __();
+ const __b = __([__a]).__(([a]) => (a + 1));
 
-   var a = __();
-   var b = __();
-   var c = __(([a, b]) => (a + b));
-   //  c = a + b
-
-   a.log('a');
-   b.log('b');
-   c.log('c');
-
-   a.t = 1;
-   b.t = 2;
+ a.t = 1;
  ```
 
+ #### output
+ ```
+ __a: 1
+ __b: 2
+ ```
 
 Is React Reactive Programming? Yes.
 
