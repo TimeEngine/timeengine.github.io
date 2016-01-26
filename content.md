@@ -910,7 +910,7 @@ object.onclick = eventHandler;
 ```
 When the user clicks the `object`, the `eventHandler` function should be triggered. Nothing is  hard. Easy concept.
 
-##Event-driven programming is
+## Event-driven programming is
 
 - easy to understand
 - simple to code
@@ -956,7 +956,8 @@ To make my point clear, let's look at
 Node.js v5.4.1 Documentation
 https://nodejs.org/api/events.html
 
-###Events
+##### Events
+
 >Much of the Node.js core API is built around an idiomatic asynchronous event-driven architecture in which certain kinds of objects (called "emitters") periodically emit named events that cause Function objects ("listeners") to be called.
 
 >The following example shows a simple EventEmitter instance with a single listener. The eventEmitter.on() method is used to register listeners, while the eventEmitter.emit() method is used to trigger the event.
