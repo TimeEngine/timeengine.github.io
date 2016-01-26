@@ -1089,10 +1089,10 @@ Functional Reactive Programming (FRP) is surely an umbrella-term, because the mo
 
 So, I observe programming community are confused by this umbrella-term.
 
-## So, I rearrange as below:
+## So, I rearrange as below: 3 First Values :
 
-### (1) Function is first class values = Functional Programming
-### (2) Object that "push" events that propagate to change other objects while observing its own `state` change = is first class values = Reactive Programming
+### (1) Functions are first class values = Functional Programming
+### (2) Object that "push" events that propagate to change other objects while observing its own `state` change are first class values = Reactive Programming
 ### (3) **Dynamic/evolving values (i.e., values "over time") are first class values in themselves.** = *Timeline Programming*
 
 #### Unfortunately, so far no word exists to categorize this independent aspect (3).
