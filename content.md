@@ -22,7 +22,7 @@
 
 ##### TimeEngine is a tiny, simple yet versatile library that provides first class reactive value 'over time' with smart dependency resolving capability in JavaScript. Built for a new programming paradigm: Dependency driven Functional Reactive Programming (DFRP).
 
-### Install
+### Install and Usage
 
 - #### node
 
@@ -36,17 +36,40 @@ For Reat Programming, with [timeengine-react](https://www.npmjs.com/package/time
 $ npm install timeengine-react
 ```
 
-- #### WebBrowser CDN
+[immutable.js](https://www.npmjs.com/package/immutable) is required for `timeengine`.
 
-[http://timeengine.github.io/cdn/timeengine.js](http://timeengine.github.io/cdn/timeengine.js)
+
+```js
+const __ = require('timeengine');
+const Immutable = require('immutable');
+
+// If with React Programming
+const __Element = require("timeengine-react");
+```
+
+- #### Browser CDN
+
+##### Download or use as a CDN
+
+http://timeengine.github.io/cdn/timeengine.js
 
 For Reat Prograamming, with [timeengine-react](https://www.npmjs.com/package/timeengine-react)
 
-[http://timeengine.github.io/cdn/timeengine-react.js](http://timeengine.github.io/cdn/timeengine-react.js)
-
- [immutable.js](https://www.npmjs.com/package/immutable) is required for timeengine.
+http://timeengine.github.io/cdn/timeengine-react.js
 
 
+To use  [immutable.js](https://www.npmjs.com/package/immutable) from a browser, download [dist/immutable.min.js](https://github.com/facebook/immutable-js/blob/master/dist/immutable.min.js)
+or use a CDN such as [CDNJS](https://cdnjs.com/libraries/immutable)
+or [jsDelivr](http://www.jsdelivr.com/#!immutable.js).
+
+Then, add it as a script tag to your page:
+
+
+```
+<script src="timeengine.js"></script>
+<script src="timeengine-react.js"></script>
+<script src="immutable.min.js"></script>
+```
 
  ### TimeEngine is Tiny
 
@@ -349,15 +372,9 @@ counter.assign($('#counter'), 'text');
 
 ## `b = a + 1`
 
-### Reactive Programming
 
-What is Reactive?
 
-### Spreadsheet
-
-![](./images/spreadsheet.png)
-
-### Dependency
+### Dependency Structure
 
 <div id="node1" class = cyte/>
 <script>
@@ -871,3 +888,500 @@ seq.valOnT = seq.evalEqs(tval);
 Show log `val` and TimeEngine `Seq`.
 
 - `val` Object
+
+
+# Basic Study
+
+
+## What is Functional Programming? or What makes Functional Programming possible?
+
+In short, function is first class object.
+function = value.
+
+
+## Event-driven programming is Cool
+
+We all know that. The goodness of event-driven programming is one of the few topics that we can easily agree on among full of controversial opinions in programming world.
+
+A basic example code of Event-driven programming is:
+
+```js
+object.onclick = eventHandler;
+```
+When the user clicks the `object`, the `eventHandler` function should be triggered. Nothing is  hard. Easy concept.
+
+##Event-driven programming is
+
+- easy to understand
+- simple to code
+- less trouble to debug
+
+If you have some experience of Event-driven programming, you may notice the Event-driven code is pretty much isolated among the other code. In most of the cases, you can freely locate it.
+
+It is simply because Event-driven code explicitly depends on event and nothing others. Event-driven code is free from context of code-flow. This is very important aspect . Event-driven code is protected from so many uncertain factors of the environment.
+
+## Event-driven programming is Declarative
+
+To be exact, Event-driven programming is one of the Declarative programming categories.
+
+You declare Event-driven code and the program flow corresponds to the statement. You will not and do not want to design any code flow.
+
+## So, forget the complicated (and potentially very messy) flowchart
+
+![enter image description here](http://timeengine.github.io/images/Flowchart01.svg)
+
+
+Typically, this flow based programming is called "Imperative programming", and the term is often used in contrast to "Declarative programming".
+
+
+## Ok, Event-driven programming is great, go for it,  but wait ...
+
+Take a look at the previous sample code of  Event-driven programming:
+
+```js
+object.onclick = eventHandler;
+```
+
+Simple enough, like I said, however, this code is potentially dangerous.
+Why? Because you can see 3 entities here that has different roles.
+
+1. `object`
+2. `.onclick`
+3. `eventHandler`
+
+
+## EventEmitter of Node.js
+
+To make my point clear, let's look at
+Node.js v5.4.1 Documentation
+https://nodejs.org/api/events.html
+
+###Events
+>Much of the Node.js core API is built around an idiomatic asynchronous event-driven architecture in which certain kinds of objects (called "emitters") periodically emit named events that cause Function objects ("listeners") to be called.
+
+>The following example shows a simple EventEmitter instance with a single listener. The eventEmitter.on() method is used to register listeners, while the eventEmitter.emit() method is used to trigger the event.
+
+```js
+const myEmitter = new MyEmitter();
+myEmitter.on('event', eventHandler);
+
+myEmitter.emit('event', 'foo');
+```
+
+1. `object`  = `myEmitter`  "emitters"
+2. `.onclick` = `.on('event')`"listeners"
+3. `eventHandler` = `eventHandler`
+
+# Event comes first, and where is value?
+
+The basic concept here is this is purely designed to pass events, and value or data is divided in this event system. Of course, to make it productive, a programmer will add value operations within "emitters", "listeners" an "eventHandler". Some people may call this "Freedom" for programmers, but No, this is "Obligation" of programmers.
+
+To make the 3 entities work collaboratively with values is programmer's responsibility. It is a manual labor, and in our smart programming world, fundamentally, a manual labor should be avoided.
+
+The problem of this structure is that Event is treated as substantial and dominant, and values/data is submissive.
+
+## Values/data is substantial
+
+Event-driven is not enough as long as Event is treated as substantial and dominant, and values/data operation is programmers obligation, responsibility and a manual labor,
+
+However, once Values/data is treated as substantial and event is merely a "glue" in programming, moreover, if  the "glue" is systematically, automatically implemented, Event-driven  finally become an extremely powerful scheme.
+
+Probably some may call this programming paradigm as [Data-driven programming](https://en.wikipedia.org/wiki/Data-driven_programming),  other may want to call [Dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). To categorize programming paradigm is always controversial, and we should be careful since often to categorize something is a matter of someone's word definition, and accordingly meaningless.
+
+How about Reactive programming ?
+
+
+## Reactive programming
+
+In common world, [Reactive programming](https://en.wikipedia.org/wiki/Reactive_programming) is described as below:
+
+>In computing, reactive programming is a **programming paradigm oriented around data flows and the propagation of change**. This means that it should be possible to express static or dynamic data flows with ease in the programming languages used, and that **the underlying execution model will automatically propagate changes through the data flow.**
+
+Cool. So this must be what we have been talking about!
+**"automatically propagate changes through the data flow"**, in another word, automatic event system depends on values/data.
+
+
+## What is Reactive Programming? Is React Reactive Programming?
+
+If the language has an first class object that "push" events that propagate to change other objects while observing its own `state` change , it's Reactive.
+
+In the sense, Spreadsheet language is Reactive Programming.
+
+ ![](./images/spreadsheet.png)
+
+
+
+
+ ## Event-driven before Reactive
+
+
+
+ ```js
+ var cellObj = ()=>{
+    var value;
+    var myEmitter = new MyEmitter();
+
+    var obj = {};
+    obj.emitter = myEmitter;
+    obj.setValue = (val) => {myEmitter.emit('change', val);};
+    obj.getValue = () => (value);
+    return obj;
+ }
+
+ var A1 = cellObj();
+ var B1 = cellObj();
+
+ A1.emitter.on('change', (val) => {B1.setValue(val + 1);});
+ ```
+
+ Although this is a Event-driven programming code,  it is complicated, and potentially very buggy. (well, actually I even haven't run this code, and no debug at all)
+
+ Like we have confirmed, since the legacy event system is so divided from values/data, so much work is required to integrate values with events..
+
+
+ ## Have you ever dreamed of JavaScript where every value is reactive object?
+
+ Actually, I have, and that is why I developed this tiny library, `timeengine`.
+
+ Of course, to be exact, not everything does not have to be reactive. Static, constant, or immutable values do not have to be reactive object. With `timeengine`, every "mutable" objects becomes reactive and immutable, and you can easy write a clean Declarative code.
+
+ ## TimeEngine Instance
+
+ ##`c = a + b` in reactive way
+
+ ```js
+   var __ = require('timeengine');
+
+   var a = __();
+   var b = __();
+   var c = __(([a, b]) => (a + b));
+   //  c = a + b
+
+   a.log('a');
+   b.log('b');
+   c.log('c');
+
+   a.t = 1;
+   b.t = 2;
+ ```
+
+
+Is React Reactive Programming? Yes.
+
+
+So far, React Component is the first class object that "push" events that propagate to change other objects while observing its own `state` change ,
+
+## What is Functional Reactive Programming (FRP)?
+
+Henrik Nilsson (Yampa developer) says:
+
+http://www.cs.nott.ac.uk/~psznhn/FoPAD2007/Talks/nhn-FoPAD2007.pdf
+
+>**FRP is an umbrella-term for functional approach to programming Reactive systems.**
+
+
+
+[Conal Elliott](http://stackoverflow.com/users/127335/conal) (known as the first person who developed FRP in 1997) says:
+as reply to:
+http://stackoverflow.com/questions/1028250/what-is-functional-reactive-programming
+>I do resonate with Laurence G's simple description that FRP is about **- "datatypes that represent a value 'over time' " -**. Conventional imperative programming captures these dynamic values only indirectly, through state and mutations. The complete history (past, present, future) has no first class representation. Moreover, only discretely evolving values can be (indirectly) captured, since the imperative paradigm is temporally discrete. In contrast, FRP captures these evolving values directly and has no difficulty with continuously evolving values.
+
+>**Dynamic/evolving values (i.e., values "over time") are first class values in themselves.** You can define them and combine them, pass them into & out of functions. I called these things "behaviors".
+
+
+Functional Reactive Programming (FRP) is surely an umbrella-term, because the most of programmers think "Reactive" is "push" system, however, there is also "pull" type of FRP.
+
+So, I observe programming community are confused by this umbrella-term.
+
+## So, I rearrange as below:
+
+### (1) Function is first class values = Functional Programming
+### (2) Object that "push" events that propagate to change other objects while observing its own `state` change = is first class values = Reactive Programming
+### (3) **Dynamic/evolving values (i.e., values "over time") are first class values in themselves.** = *Timeline Programming*
+
+#### Unfortunately, so far no word exists to categorize this independent aspect (3).
+
+Remember it is possible to program with (3) the first class values "over time" without (1) the first class values of function or (2) the first class values of  reactive observer. In fact, pull type FRP is (1) + (3).
+
+Under the umbrella-term FRP, the most programmers feel that FRP is push type, simply because "Reactive" word is there, so must be (1)+(2)+(3).
+
+## So what's about the current React implementation?
+
+As I confirmed above, React is (2) Reactive Programming.
+
+What is the first class value of Reactive Programming? Component.
+What is another first class value of ReactJSX? Element.
+In my programming experience, when I observe 2 entities in the same realm, I always doubt that it is essentially a single entity.
+
+Recently, we have new type of Component as a JS function that simply returns another Element.
+
+Functional Stateless Components in React 0.14
+
+https://facebook.github.io/react/blog/2015/12/18/react-components-elements-and-instances.html
+
+#### Components Can Be Classes or Functions
+
+>When a component is defined as a class, it is a little bit more powerful than a functional component. It can store some local state and perform custom logic when the corresponding DOM node is created or destroyed.
+>A functional component is less powerful but is simpler, and acts like a class component with just a single render() method. Unless you need features available only in a class, we encourage you to use functional components instead.
+
+Now, it appears Facebook team and the community tries to discard Component concept, and unify Component and Element together.
+
+So, what's the all about this `state` things? This is obviously the major obstacle to unify both.
+The answer is
+(3) **Dynamic/evolving values (i.e., values "over time") are first class values in themselves.** = *Timeline Programming*
+
+React Element is Not **Dynamic/evolving values (i.e., values "over time") are first class values in themselves.**.
+
+If Element is implemented as **first class values "over time"**, the final barrier will be broken through, and all the confusion will be gone, and FRP-React is finally possible.
+
+The good news is it is not hard at all, and the below is my implementation:
+`timeengine-react`
+https://github.com/TimeEngine/timeengine-react/blob/master/timeengine-react.jsx
+
+
+First thing first, you must have **first class values "over time"**, in my case, I developed my own `timeengine` as above.
+Here, `__seqEl` is the  **first class values "over time"**, which is an Element wrapped by the FRP value constructor.
+
+So, no `state` anymore. `state` can be hidden from programmers once Element becomes **first class values "over time"**.
+
+What about `Props`?
+
+Do we really need `Props`?
+Do we really need to write
+
+```js
+const HelloMessage = (props) => (<div>Hello {props.name}</div>);
+ReactDOM.render(<HelloMessage name="Sebastian" />, mountNode);
+```
+It can be replaced to the vanilla ES6 arguments syntax even under the current Stateless functional component.
+We have `...args` and default arguments.
+
+```js
+const HelloMessage = (name) => (<div>Hello {name}</div>);
+ReactDOM.render(HelloMessage("Sebastian"), mountNode);
+```
+
+
+React can be very simple and functional.
+
+No Component, no State, no Props, just Element (well, we can rename Element to Component if it sounds better to us) and function.
+
+Element is the only first class value.
+Currently, we call a function that just returns Element as "Stateless functional component", this is potentially so strange.
+https://github.com/facebook/react/issues/3220
+
+In a sense, a functions that returns Element can be recognized as a lazy evaluated Element.
+
+The big picture is as simple as:
+
+Element => Element => Element .....
+Elements as functions are composed with another Elements as functions, and keep in mind, this is native feature of JavaScript functional programming that is, function is first class.
+
+
+React can be refactored and simplified if Element is  **first class values "over time"**.
+
+
+
+
+## Time sequence is an immutable value
+
+Yes, and it is actually immutable value.
+
+In FRP, often Time Sequence is called as Stream, but the bad thiing of the word "stream" is it sounds mutable.
+
+Yes, surely, Time looks like it frows, at leaset it appears so, but, in physics, it's merely a recognition
+
+
+
+## Naïve realism is hazrad for you to understand FRP
+
+>Naïve realism, also known as direct realism or common sense realism, is a philosophy of mind rooted in a theory of perception that claims that the senses provide us with direct awareness of the external world. In contrast, some forms of idealism assert that no world exists apart from mind-dependent ideas and some forms of skepticism say we cannot trust our senses.
+The realist view is that we perceive objects as they really are. They are composed of matter, occupy space and have properties, such as size, shape, texture, smell, taste and colour, that are usually perceived correctly. Objects obey the laws of physics and retain all their properties whether or not there is anyone to observe them.[1]
+Naïve realism is known as direct as against indirect or representative realism when its arguments are developed to counter the latter position, also known as epistemological dualism;[2] that our conscious experience is not of the real world but of an internal representation of the world.
+
+![enter image description here](https://upload.wikimedia.org/wikipedia/en/2/26/Naive_realism.jpg)
+
+
+Our perception to time or world. "Time flows" or "Time is mutable" is one of the most famous of "Naïve realism".
+99% of programmers Naively takes the view of Naïve realism against time.
+
+In fact, when I discuss this time is still stuff of meta-physics, or philosophical topic, many responds uncomforablly, irritated They are very umconfortable since I talk against their naiveness. They SF or Cult, it is nothing to do with programming.
+Well, I just try to consider things in the world, and abstractively, oftem mathematically.
+They are just naive.
+
+That is why mutable, or immutable, or state argument is 遅々として進まない
+
+now we don't take the view, Time does not flow, it's immutable
+
+the world is still.
+
+So, I won't use a word stream, it is a word from Naïve realism, misconception and misleading, and make lots of confustion.
+
+
+Time flow concept in Naïve realism is simply a crap, and most harmful in programming.
+
+
+
+## Physics is never be destructive
+
+Since programming is fundamentally mathematics, the world view of Naive reaalism does not fit.
+
+Instead, since programming is mathematics, we employs the view of matehmatics for our world. that is called Physics.
+
+Timeline is `t`
+
+and
+
+Not `a` as a mutable value  
+
+But `a.t` as a immutable value.
+
+
+## `setTimeout` and `setInterval` is not good
+
+because, again, it only an event. Value is excluded detached.
+
+## We need an alternative event/responsible value
+
+Firstly, time is immutable sequence. infinite sequence. We need to prepare for that.
+
+How?
+
+## imuutable.js by Facebook, npm library for immutable sequence
+
+Although, `timeengine` tries to be as minimal as possible, and tries not to depend on other libraris, when it comes to seqence, `immutable` is the king, in my opinion.
+
+No reinvention of wheel.
+
+To generate time seqence, `timeengine` convinently depends on immutable sequences.
+
+Transforms, to timeengine timeseqence.
+or map.
+
+```js
+  __.log.t = __.intervalSeq(Immutable.Range(0, 5), 1000)
+    .log(">>>") ;
+```
+
+
+
+## What is the difference ReactiveProgramming from Spreadsheet?
+
+Calculation timing.
+In Spreadsheet applications, we don't care which cell is calculated first A1 A2, the sequence does not matter to the result.
+
+However, in programming the sequence does matter.
+One example would be
+
+## Linux boot seqence management
+
+
+
+## `Initd`  = Impeeretive Script
+
+## `Upstart` = Event-driven Script
+
+## `Systemd` = System just resolves the unit dependency based on files
+
+Sure it is still event-driven, but this is more like dependenncy resolution.
+
+You define dependency on files, and systemD analyzes the strucutire and
+decreatative
+
+## Value dependency
+
+
+
+## Compose structure of Value dependency, and make it resolved by system
+
+## TimeEngine is the smart resolver of dependencies structure of the reactive values
+
+
+```
+step1(function (value1) {
+    step2(value1, function(value2) {
+        step3(value2, function(value3) {
+            step4(value3, function(value4) {
+                // Do something with value4
+            });
+        });
+    });
+});
+```
+
+## Promise is complicated and hard to write
+
+.when .then .done
+.all .spread
+
+this various word is just to use to resolve dependency.
+
+
+
+## Promise is not enough
+
+More importantly, when dependency structure or construction does matter, does Promise do the job?
+The above illustraton is dead simple, but what if the problem is to resolve Linux boot sequence ?
+
+I strongly doubt it.
+
+As we confirmed already, the cutting edge solution in linux world is SystemD. That only define unit files that define dependecy. No more script, 100% declrarive.
+
+In that sense, Promise is an outdated scheme . It's a flow oriented script system, which cannnot handle  a complicated dependency structure.
+
+Promise still focus on code flow with some event-driven.
+
+Instead, we now focus on dependency of values with reactive programming.
+
+## TimeSequence is immutable, so where has "past data" gone
+
+Most of the case, we don't need the past data for event-driven system.
+
+In fact, I considered to exclude the feature from this library to be as minimal as possible
+
+"Record" feature is implemented for timeline instance
+
+`__.log` is store default.
+
+## Record the past
+
+```js
+  // memory leak, performance issue
+  //how about games? memoized_reduce is needed
+  // to calculate many elemnents of the long array
+  const CounterElementStateHistory = () => {
+    const __updn = __(true); //1 or -1 or initially 0
+    const __seqEl = __([__updn])
+      .__(([updn]) => (__updn
+          .reduce((a, b) => (a + b)))) //js Array.reduce
+      .__((count) => (<span>{count}</span>));
+    const init = () => (__updn.t = 0); //just trigger to view the init
+    const __runNow = __
+      .intervalSeq(Immutable.Seq.of(true), 0)
+      .__(init);
+    return (<span>
+             <button
+      onClick={() => (__updn.t = 1)}>{"Up"}</button>
+             <button
+      onClick={() => (__updn.t = -1)}>{"Down"}</button>
+             &nbsp;&nbsp;{__Element(__seqEl)}&nbsp;&nbsp;
+            </span>);
+  };
+
+  // no seq object destroy
+  const CounterReloadElement = () => {
+    const __clicked = __();
+    const onClick = () => {
+      __clicked.t = true;
+    };
+    const __runNow = __
+      .intervalSeq(Immutable.Seq.of(true), 0)
+      .__(onClick);
+    const __seqEl = __([__clicked])
+      .__(() => (<span>{CounterElementStateHistory()}</span>));
+    return (<div>
+            {__Element(__seqEl)}
+           <button onClick={onClick}>{"Reload"}</button>
+          </div>);
+  };
+```
