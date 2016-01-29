@@ -133,8 +133,7 @@ is refactored to   with `timeengine` + `timeengine-react`:
 const TimerElement = () => __Element(__
     .intervalSeq(Immutable.Range(), 1000)
     .__((count) => (__.log.t = count)) //console.log
-    .__((count) => (<div>{"Timer : "}{count}</div>)));node
-};
+    .__((count) => (<div>Timer : {count}</div>)));
 ```
 
  `.intervalSeq` is a special bridge API to map [Immutable-js](https://facebook.github.io/immutable-js/) infinite Sequence on TimeEngine infinite Sequence.
