@@ -93,7 +93,9 @@ code.  `Demo #1`
 
 - Write a clean Declarative code to animate physics equations with time-sequence. `Demo #3`
 
-- Forget to use complicated [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), and the libraries, instead, use FRP, and take advantage of simple TimeEngine API. `Demo #4`
+- Callback Alternative `Code #4`
+
+- Asynchronous task control: alterative to  [async](https://github.com/caolan/async), [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)  `Code #5`
 
 -----
 
@@ -269,7 +271,234 @@ counter.assign($('#counter'), 'text');
 
 -----
 
-#### `Demo #4`
+#### `Code #4`
+
+Callback Alternative
+
+```js
+const f = (__bcn) => {
+  setTimeout(() => {
+    __bcn.t = 'calling back!';
+  }, 1000);
+};
+
+const __beacon = __();
+const ts0 = __([__beacon])
+  .__((beacon) => (__.log.t = beacon));
+
+f(__beacon);
+```
+-----
+
+#### `Code #5`
+
+[Async.js parallel](https://github.com/caolan/async#parallel)
+
+```js
+const async = require("async");
+
+async.parallel([
+  function(callback) {
+    setTimeout(function() {
+      callback(null, 'one');
+    }, 200);
+  },
+  function(callback) {
+    setTimeout(function() {
+      callback(null, 'two');
+    }, 100);
+  }
+],
+  // optional callback
+  function(err, results) {
+    // the results array will equal ['one','two'] even though
+    // the second function had a shorter timeout.
+    console.log(results);
+  });
+
+```
+
+```
+[ 'one', 'two' ]
+```
+TimeEngine code for parallel
+
+```js
+const __ = require("timeengine");
+const Immutable = require("immutable");
+
+const __data0 = __();
+const __data1 = __();
+const __data2 = __();
+
+const __task1 = __data0
+  .__((data0) => {
+    setTimeout(function() {
+      __data1.t = 'one';
+    }, 200);
+  });
+const __task2 = __data0
+  .__((data0) => {
+    setTimeout(function() {
+      __data2.t = 'two';
+    }, 100);
+  });
+
+const __done = __([__data1, __data2])
+  .__(([data1, data2]) => (__.log.t = [data1, data2]));
+
+const __runNow = __
+  .intervalSeq(Immutable.Seq.of(true), 0)
+  .__(() => (__data0.t = "start"));
+```
+
+```
+$ babel-node test99.es
+>>>  [ 'one', 'two' ]
+```
+
+Notice the TimeEngine code is 100% declrarive, every line is
+`const .....`.
+
+------
+
+[Async.js waterfall](https://github.com/caolan/async#waterfall)
+
+```js
+const async = require("async");
+
+async.waterfall([
+  async.apply(task1, 'zero'),
+  task2,
+  task3,
+], function(err, result) {
+  // result now equals 'done'
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(result);
+  }
+});
+function task1(arg1, callback) {
+  // arg1 now equals 'zero'
+  console.log(arg1);
+  setTimeout(() => {
+    const data = 'one';
+    console.log(data);
+    callback(null, data, 'two');
+  }, 300);
+}
+function task2(arg1, arg2, callback) {
+  // arg1 now equals 'one' and arg2 now equals 'two'
+  setTimeout(() => {
+    const data = 'two';
+    console.log(data);
+    callback(null, 'three');
+  }, 100);
+}
+function task3(arg1, callback) {
+  // arg1 now equals 'three'
+  setTimeout(() => {
+    const data = 'three';
+    console.log(data);
+    callback(null, 'done');
+  }, 200);
+}
+```
+
+```
+zero
+one
+two
+three
+done
+```
+
+TimeEngine code for waterfall
+
+```js
+const __ = require("timeengine");
+const Immutable = require("immutable");
+
+const __data0 = __();
+const __data1 = __();
+const __data2 = __();
+const __data3 = __();
+const __err1 = __();
+const __err2 = __();
+const __err3 = __();
+
+const __task1 = __data0
+  .__((data0) => {
+    __.log.t = data0;
+    setTimeout(() => {
+      const data = 'one';
+      __data1.t = __.log.t = data;
+    }, 300);
+  });
+const __task2 = __data1
+  .__((data1) => {
+    setTimeout(() => {
+      const data = 'two';
+      __data2.t = __.log.t = data;
+    //  __err2.t = 'some error2';
+    }, 100);
+  });
+const __task3 = __([__data1, __data2])
+  .__(([data1, data2]) => { //can take multiple previous results
+    setTimeout(() => {
+      const data = 'three';
+      __data3.t = __.log.t = data;
+    }, 200);
+  });
+const __done = __data3
+  .__((data3) => {
+    __.log.t = 'done';
+  });
+const __errHandler1 = __err1
+  .__((err1) => {
+    __.log.t = err1;
+  });
+const __errHandler2 = __err2
+  .__((err2) => {
+    __.log.t = err2;
+  });
+const __errHandler3 = __err3
+  .__((err3) => {
+    __.log.t = err3;
+  });
+const __runNow = __
+  .intervalSeq(Immutable.Seq.of(true), 0)
+  .__(() => (__data0.t = "zero"));
+```
+
+```
+$ babel-node test99.es
+>>>  zero
+>>>  one
+>>>  two
+>>>  three
+>>>  done
+```
+
+if error occurs on task2
+
+```
+//  __data2.t = __.log.t = data;
+__err2.t = 'some error2';
+```
+
+
+```
+>>>  zero
+>>>  one
+>>>  some error2
+```
+
+Notice the TimeEngine code is 100% declrarive, every line is
+`const .....`.
+
+-----
 
  [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
