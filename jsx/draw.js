@@ -20,7 +20,7 @@ setTimeout(() => {
     __mouseDown.t = 1;
     __drawFrom.t = {
       x: e.clientX - 37,
-      y: e.clientY - 205
+      y: e.clientY - 204
     };
   };
   canvas.onmouseup = (e) => {
@@ -30,7 +30,7 @@ setTimeout(() => {
     if (__mouseDown.t === 1) {
       __drawTo.t = {
         x: e.clientX - 37,
-        y: e.clientY - 205
+        y: e.clientY - 204
       };
       __drawFrom.t = __drawTo.t;
 
