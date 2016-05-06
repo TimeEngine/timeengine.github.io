@@ -16,11 +16,16 @@ setTimeout(() => {
         return val;
       }
   );
+
+
+
   canvas.onmousedown = (e) => {
     __mouseDown.t = 1;
+
+    const rect = e.target.getBoundingClientRect();
     __drawFrom.t = {
-      x: e.clientX - 37,
-      y: e.clientY - 204
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
     };
   };
   canvas.onmouseup = (e) => {
@@ -28,13 +33,13 @@ setTimeout(() => {
   };
   canvas.onmousemove = (e) => {
     if (__mouseDown.t === 1) {
+      const rect = e.target.getBoundingClientRect();
       __drawTo.t = {
-        x: e.clientX - 37,
-        y: e.clientY - 204
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
       };
       __drawFrom.t = __drawTo.t;
 
-      __.log.t = __drawFrom.t;
     }
   };
 }, 1000);
