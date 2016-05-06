@@ -615,8 +615,8 @@ Notice the TimeEngine code is 100% declrarive, every line is
     canvas.onmousedown = (e) => {
       __mouseDown.t = 1;
       __drawFrom.t = {
-        x: e.clientX-40,
-        y: e.clientY-200
+        x: e.clientX,
+        y: e.clientY
       };
     };
     canvas.onmouseup = (e) => {
@@ -625,8 +625,8 @@ Notice the TimeEngine code is 100% declrarive, every line is
     canvas.onmousemove = (e) => {
       if (__mouseDown.t === 1) {
         __drawTo.t = {
-          x: e.clientX-40,
-          y: e.clientY-200
+          x: e.clientX,
+          y: e.clientY
         };
         __drawFrom.t = __drawTo.t;
       }
