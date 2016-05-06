@@ -293,7 +293,7 @@ var _slicedToArray = (function() {
 })();
 
 console.log('test');
-onload = () => {
+setTimeout(() => {
   console.log('onload!!');
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
@@ -331,4 +331,4 @@ onload = () => {
       __.log.t = __drawFrom.t;
     }
   };
-};
+}, 1000);
