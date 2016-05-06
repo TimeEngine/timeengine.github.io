@@ -637,7 +637,7 @@ Notice the TimeEngine code is 100% declrarive, every line is
 <canvas id="canvas1" width="900" height="500"></canvas>
 
 -----
-<script src ="./jsx/draw.js"></script>
+ 
 
 -----
 
