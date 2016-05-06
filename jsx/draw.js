@@ -1,4 +1,6 @@
-onload = () => {
+
+setTimeout(() => {
+  console.log('onload!!');
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
   const __mouseDown = __();
@@ -35,4 +37,4 @@ onload = () => {
       __.log.t = __drawFrom.t;
     }
   };
-};
+}, 1000);
