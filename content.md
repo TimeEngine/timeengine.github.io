@@ -589,6 +589,8 @@ Notice the TimeEngine code is 100% declrarive, every line is
 
 ```
 
+-----
+
 #### `Demo #9`
 
  Simple Draw
@@ -631,10 +633,10 @@ Notice the TimeEngine code is 100% declrarive, every line is
     };
 ```
 
-<canvas id="canvas1" width="500" height="500"></canvas>
+<canvas id="canvas1" width="900" height="500"></canvas>
 
 -----
-<script src ="./jsx/div-react.js"></script>
+<script src ="./jsx/draw.js"></script>
 
 -----
 
@@ -1470,7 +1472,7 @@ Yes, surely, Time looks like it frows, at leaset it appears so, but, in physics,
 The realist view is that we perceive objects as they really are. They are composed of matter, occupy space and have properties, such as size, shape, texture, smell, taste and colour, that are usually perceived correctly. Objects obey the laws of physics and retain all their properties whether or not there is anyone to observe them.[1]
 Naïve realism is known as direct as against indirect or representative realism when its arguments are developed to counter the latter position, also known as epistemological dualism;[2] that our conscious experience is not of the real world but of an internal representation of the world.
 
-![enter image description here](https://upload.wikimedia.org/wikipedia/en/2/26/Naive_realism.jpg)
+![enter image description here](https://upload.wikimedia.org/wikipedia/commons/2/26/Naive_realism.jpg)
 
 
 Our perception to time or world. "Time flows" or "Time is mutable" is one of the most famous of "Naïve realism".
