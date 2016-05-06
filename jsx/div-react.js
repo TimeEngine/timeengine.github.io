@@ -292,7 +292,9 @@ var _slicedToArray = (function() {
   ), document.getElementById('div2'));
 })();
 
+console.log('test');
 onload = () => {
+  console.log('onload!!');
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
   const __mouseDown = __();
