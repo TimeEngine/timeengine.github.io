@@ -632,6 +632,7 @@ Notice the TimeEngine code is 100% declrarive, every line is
       }
     };
 ```
+## DRAW HERE ↓
 
 <canvas id="canvas1" width="900" height="500"></canvas>
 

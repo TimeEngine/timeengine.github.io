@@ -31,6 +31,8 @@ onload = () => {
         y: e.clientY
       };
       __drawFrom.t = __drawTo.t;
+
+      __.log.t = __drawFrom.t;
     }
   };
 };
