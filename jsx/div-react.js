@@ -48,7 +48,7 @@ var _slicedToArray = (function() {
   // map natural numbers sequence on intervalSeq(1000)
   var TimerElement = function TimerElement() {
     return __Element(__.intervalSeq(Immutable.Range(), 1000).__(function(count) {
-      return __.log.t = count;
+      return count;
     }) //console.log
       .__(function(count) {
         return React.createElement(
