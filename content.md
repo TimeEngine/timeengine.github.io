@@ -654,7 +654,7 @@ ToDo List (React & timeengine-react)
 (() => {
   'use strict';
   const TodoElement = () => {
-    const ClockElement = () => __Element(__
+    const ClockElement = __Element(__
       .intervalSeq(Immutable.Range(), 100)
       .__(() => (<div>{moment().format('MMMM Do YYYY, h:mm:ss a')}</div>)));
     const __items = __(true);
@@ -673,7 +673,7 @@ ToDo List (React & timeengine-react)
       return (<div>{__Element(__seqEl)}</div>);
     };
     return (<div><h2>ToDo</h2>
-      {ClockElement()}<p/>
+      {ClockElement}<p/>
       {ListElement}
       {InputElement()}</div>);
   };
