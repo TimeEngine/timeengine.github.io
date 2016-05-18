@@ -670,7 +670,7 @@ ToDo List (React & timeengine-react)
         <button onClick = {onClick}>{'NewToDo#' + (__items.length + 1)}</button></div>));
       __.log.__(() => (__value.t = ""));
       __.log.t = "started!";
-      return (<div>{__Element(__seqEl)}</div>);
+      return __Element(__seqEl);
     };
     return (<div><h2>ToDo</h2>
       {ClockElement}<p/>
@@ -679,7 +679,6 @@ ToDo List (React & timeengine-react)
   };
   const mount = ReactDOM.render(TodoElement(), document.getElementById('todo'));
 })();
-
 ```
 
 <div id ="todo" class = "demo"/>
