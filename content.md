@@ -649,6 +649,7 @@ canvas.onmousemove = (e) => {
 
 ToDo List (React & timeengine-react)
 
+
 ```js
 (() => {
   'use strict';
@@ -678,6 +679,7 @@ ToDo List (React & timeengine-react)
   };
   const mount = ReactDOM.render(TodoElement(), document.getElementById('todo'));
 })();
+
 ```
 
 <div id="todo"</div>
@@ -685,7 +687,6 @@ ToDo List (React & timeengine-react)
 
 <script src ="./jsx/todolist.js"></script>
 
--------------------
 
 <script src ="./jsx/div-react.js"></script>
 
