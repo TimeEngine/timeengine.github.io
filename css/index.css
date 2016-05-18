@@ -9,8 +9,8 @@ display: flex;
   margin: 40px 40px 40px 40px;
 }
 
-p, ul, li, input{
-  font-size: 24px;
+p, ul, li, input, button{
+  font-size: 18px;
 }
 
 pre{
