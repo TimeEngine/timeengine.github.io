@@ -682,7 +682,7 @@ ToDo List (React & timeengine-react)
 
 ```
 
-<div id="todo"</div>
+<div id ="todo" class = "demo"/>
 
 
 <script src ="./jsx/todolist.js"></script>
