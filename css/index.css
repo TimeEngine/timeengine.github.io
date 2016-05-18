@@ -9,8 +9,12 @@ display: flex;
   margin: 40px 40px 40px 40px;
 }
 
-p, ul, li, input, button{
+p, ul, li{
   font-size: 18px;
+}
+
+pinput{
+  font-size: 23px;
 }
 
 pre{
