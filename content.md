@@ -668,7 +668,7 @@ ToDo List (React & timeengine-react)
         .__((value) => (<div>
         <input type="text" value={value} onChange={onChange}/>
         <button onClick = {onClick}>{'NewToDo#' + (__items.length + 1)}</button></div>));
-      __.log.__(() => (__value.t = ""));
+      const dummy = __.log.__(() => (__value.t = ""));
       __.log.t = "started!";
       return __Element(__seqEl);
     };
