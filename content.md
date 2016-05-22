@@ -706,8 +706,7 @@ ToDo Multiple List  (React & timeengine-react)
       });
     const ListofListElement = __Element(__([__lists])
       .__(() => ((__lists)
-        .map((list, i) => (<button
-          onClick = {() => (__.log.t = __focusedList.t = i)}>{'List#' + (i + 1)}</button>)))));
+        .map((list, i) => (<button onClick = {() => (__.log.t = __focusedList.t = i)}>{'List#' + (i + 1)}</button>)))));
     const InputElement = () => {
       const __value = __();
       const onChange = (e) => (__value.t = e.target.value);
@@ -717,8 +716,7 @@ ToDo Multiple List  (React & timeengine-react)
         __.log.t = 'newList';
       };
       const __seqEl = __([__value])
-        .__((value) => (<div>
-          <h4>{'List#' + (__focusedList.t + 1)}
+        .__((value) => (<div><h4>{'List#' + (__focusedList.t + 1)}
           <button onClick = {onClickNL}>{'NewList'}</button></h4>
             {__lists[__focusedList.t]
             .map((item) => (<li>{item}</li>))}
