@@ -707,14 +707,11 @@ ToDo Multiple List  (React & timeengine-react)
     const ListofListElement = __Element(__([__lists])
       .__(() => ((__lists)
         .map((list, i) => (<button
-          onClick = {() => (__.log.t = __focusedList.t = i)}>
-          {'List#' + (i + 1)}</button>)))));
+          onClick = {() => (__.log.t = __focusedList.t = i)}>{'List#' + (i + 1)}</button>)))));
     const InputElement = () => {
       const __value = __();
       const onChange = (e) => (__value.t = e.target.value);
-      const onClick = () => {
-        __.log.t = __lists[__focusedList.t].t = __value.t;
-      };
+      const onClick = () => (__.log.t = __lists[__focusedList.t].t = __value.t);
       const onClickNL = () => {
         __lists.t = __(true); //new items-list
         __.log.t = 'newList';
