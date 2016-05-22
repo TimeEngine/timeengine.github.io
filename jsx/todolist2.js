@@ -76,7 +76,7 @@ setTimeout(() => {
         InputElement()
       );
     };
-    var mount = ReactDOM.render(TodoElement(), document.getElementById('container'));
+    var mount = ReactDOM.render(TodoElement(), document.getElementById('todo2'));
   })();
 
   //---------
