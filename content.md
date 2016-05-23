@@ -727,13 +727,9 @@ ToDo Multiple List  (React & timeengine-react)
       return __Element(__seqEl);
     };
     __lists.t = __(true); //new items-list
-    (() => {
-      const __delay = __
-        .intervalSeq(Immutable
-          .Seq.of("started!"), 1000)
-        .log()
+    const __delay = __
+        .intervalSeq(Immutable.Seq.of("started!"), 1000)
         .__(() => (__.log.t = "showInput"));
-    })();
     return (<div><h2>ToDo</h2>
       {ClockElement}<p/>
       {ListofListElement}<p/>
