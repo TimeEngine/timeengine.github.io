@@ -100,7 +100,7 @@ setTimeout(() => {
       InputElement()
     );
   };
-  var mount = ReactDOM.render(TodoElement(), document.getElementById('todo'));
+  var mount = ReactDOM.render(TodoElement(), document.getElementById('todo2'));
   //---------
 
 }, 1000);
