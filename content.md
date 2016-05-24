@@ -703,8 +703,8 @@ const TodoElement = () => {
       return __list;
     });
   const ListofListElement = __Element(__([__lists])
-    .__(() => ((__lists)
-      .map((list, i) => (<button onClick = {() => (__.log.t = __focusedList.t = i)}>{'List#' + (i + 1)}</button>)))));
+    .__(() => ((__lists).map((list, i) => (
+      <button onClick = {() => (__.log.t = __focusedList.t = i)}>{'List#' + (i + 1)}</button>)))));
   const InputElement = () => {
     const __value = __();
     const onChange = (e) => (__value.t = e.target.value);
@@ -718,8 +718,7 @@ const TodoElement = () => {
     const __seqEl = __([__value]).__((value) => (<div>
           <h4>{'List#' + (__focusedList.t + 1)}
           <button onClick = {onClickNL}>{'NewList'}</button></h4>
-            {__lists[__focusedList.t]
-        .map((item) => (<li>{item}</li>))}
+            {__lists[__focusedList.t].map((item) => (<li>{item}</li>))}
             <input type="text" value={value} onChange={onChange}/>
             <button onClick = {onClick}>{'NewToDo#' + (__lists[__focusedList.t].length + 1)}</button></div>));
     __.log.__(() => (__value.t = ""));
