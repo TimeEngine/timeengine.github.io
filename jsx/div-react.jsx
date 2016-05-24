@@ -9,8 +9,7 @@
   // `.intervalSeq` is to map Immutable-js infinite Sequence
   //                       on TimeEngine infinite Sequence
   // map natural numbers sequence on intervalSeq(1000)
-  const TimerElement = () => __Element(__
-    .intervalSeq(Immutable.Range(), 1000)
+  const TimerElement = __Element(__.intervalSeq(Immutable.Range(), 1000)
     .__((count) => (__.log.t = count)) //console.log
     .__((count) => (<div>Timer : {count}</div>)));
 
@@ -111,7 +110,8 @@
       );
   };
 
-  const mount0 = ReactDOM.render(<h3>{TimerElement()}</h3>, document.getElementById('div0'));
+  const mount0 = ReactDOM.render(<h3>{TimerElement}</h3>,
+    document.getElementById('div0'));
 
   const mount1 = ReactDOM.render(<div>{CounterElement()}</div>, document.getElementById('div1'));
 

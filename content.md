@@ -132,10 +132,15 @@ is refactored to   with `timeengine` + `timeengine-react`:
 ##### A Stateless functional Element (Single statement code!!)
 
 ```js
-const TimerElement = () => __Element(__
-    .intervalSeq(Immutable.Range(), 1000)
-    .__((count) => (__.log.t = count)) //console.log
-    .__((count) => (<div>Timer : {count}</div>)));
+const TimerElement = __Element(__.intervalSeq(Immutable.Range(), 1000)
+                      .__((count) => (<div>{"Timer : "}{count}</div>)));
+
+const TopElement = (
+<div>
+   <p>{"HelloElement!!"}</p>
+    {TimerElement}
+</div>
+);
 ```
 
  `.intervalSeq` is a special bridge API to map [Immutable-js](https://facebook.github.io/immutable-js/) infinite Sequence on TimeEngine infinite Sequence.
