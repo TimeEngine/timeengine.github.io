@@ -704,9 +704,7 @@ const TodoElement = () => {
     });
   const ListofListElement = __Element(__([__lists])
     .__(() => ((__lists)
-      .map((list, i) => (<button
-        onClick = {() => (__.log.t = __focusedList.t = i)}>
-          {'List#' + (i + 1)}</button>)))));
+      .map((list, i) => (<button onClick = {() => (__.log.t = __focusedList.t = i)}>{'List#' + (i + 1)}</button>)))));
   const InputElement = () => {
     const __value = __();
     const onChange = (e) => (__value.t = e.target.value);
