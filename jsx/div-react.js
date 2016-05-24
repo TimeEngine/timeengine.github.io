@@ -198,7 +198,7 @@ var _slicedToArray = (function() {
     var THETA = DEG / 180 * Math.PI; //radian
     var G = 9.8; //gravity const
     //t seconds elapsed 0msec time resolution
-    var t = __.intervalSeq(Immutable.Range(), 10).__(function(count) {
+    var t = __.intervalSeq([__(Immutable.Range(), 10)]).__(function([count]) {
       return count * 10 / 1000;
     });
     var x = __([t]).__(function(_ref5) {
