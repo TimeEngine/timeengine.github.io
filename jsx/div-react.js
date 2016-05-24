@@ -198,29 +198,32 @@ var _slicedToArray = (function() {
     var THETA = DEG / 180 * Math.PI; //radian
     var G = 9.8; //gravity const
     //t seconds elapsed 0msec time resolution
-    var t = __.intervalSeq([__(Immutable.Range(), 10)]).__(function([count]) {
+    var t = __([__.intervalSeq(Immutable.Range(), 10)]).__(function(_ref) {
+      var _ref2 = _slicedToArray(_ref, 1);
+
+      var count = _ref2[0];
       return count * 10 / 1000;
     });
-    var x = __([t]).__(function(_ref5) {
-      var _ref52 = _slicedToArray(_ref5, 1);
+    var x = __([t]).__(function(_ref3) {
+      var _ref4 = _slicedToArray(_ref3, 1);
 
-      var t = _ref52[0];
+      var t = _ref4[0];
       return V0 * Math.cos(THETA) * t;
     });
-    var y = __([t]).__(function(_ref6) {
-      var _ref62 = _slicedToArray(_ref6, 1);
+    var y = __([t]).__(function(_ref5) {
+      var _ref6 = _slicedToArray(_ref5, 1);
 
-      var t = _ref62[0];
+      var t = _ref6[0];
       return V0 * Math.sin(THETA) * t - 1 / 2 * G * Math.pow(t, 2);
     });
     //==================================
     var Drawscale = 1; //1 dot = 1 meter
     var __seqEl = __([x, y]) //atomic update
       .__(function(_ref7) {
-        var _ref72 = _slicedToArray(_ref7, 2);
+        var _ref8 = _slicedToArray(_ref7, 2);
 
-        var x = _ref72[0];
-        var y = _ref72[1];
+        var x = _ref8[0];
+        var y = _ref8[1];
         return React.createElement(
           "div",
           null,
@@ -241,7 +244,6 @@ var _slicedToArray = (function() {
       });
     return __Element(__seqEl);
   };
-
   var WorldElement = function WorldElement() {
     var __clicked = __();
     var onClick = function onClick() {

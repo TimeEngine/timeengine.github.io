@@ -229,8 +229,8 @@ counter.assign($('#counter'), 'text');
     const THETA = DEG / 180 * Math.PI; //radian
     const G = 9.8; //gravity const
     //t seconds elapsed 10msec time resolution
-    const t = __.intervalSeq([__(Immutable.Range(), 10)])
-      .__(([count]) => (count * 10 / 1000));
+    const t = __([__.intervalSeq(Immutable.Range(), 10)])
+        .__(([count]) => (count * 10 / 1000));
     const x = __([t]).__(([t]) => V0 * Math.cos(THETA) * t);
     const y = __([t]).__(([t]) => V0 * Math.sin(THETA) * t - 1 / 2 * G * Math.pow(t, 2));
     //==================================
