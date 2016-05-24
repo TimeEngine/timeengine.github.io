@@ -692,16 +692,13 @@ ToDo Multiple List  (React & timeengine-react)
 
 ```js
 const TodoElement = () => {
-  const ClockElement = __Element(__
-    .intervalSeq(Immutable.Range(), 100)
+  const ClockElement = __Element(__.intervalSeq(Immutable.Range(), 100)
     .__(() => (<div>{moment().format('MMMM Do YYYY, h:mm:ss a')}</div>)));
-  const __focusedList = __()
-    .__((val) => (__.log.t = val));
-  const __lists = __(true)
-    .__((__list) => {
-      __focusedList.t = __lists.length;
-      return __list;
-    });
+  const __focusedList = __().__((val) => (__.log.t = val));
+  const __lists = __(true).__((__list) => {
+    __focusedList.t = __lists.length;
+    return __list;
+  });
   const ListofListElement = __Element(__([__lists])
     .__(() => ((__lists).map((list, i) => (
       <button onClick = {() => (__.log.t = __focusedList.t = i)}>{'List#' + (i + 1)}</button>)))));
@@ -723,13 +720,10 @@ const TodoElement = () => {
     return __Element(__seqEl);
   };
   __lists.t = __(true); //new items-list
-  const __delay = __.intervalSeq(Immutable
-    .Seq.of("started!"), 1000)
+  const __delay = __.intervalSeq(Immutable.Seq.of("started!"), 1000)
     .__(() => (__.log.t = "showInput"));
-  return (<div><h2>ToDo</h2>
-      {ClockElement}<p/>
-      {ListofListElement}<p/>
-      {InputElement()}</div>);
+  return (<div><h2>ToDo</h2>{ClockElement}<p/>
+      {ListofListElement}<p/>{InputElement()}</div>);
 };
 const mount = ReactDOM.render(TodoElement(), document.getElementById('todo'));
 ```
