@@ -695,10 +695,7 @@ const TodoElement = () => {
   const ClockElement = __Element(__.intervalSeq(Immutable.Range(), 100)
     .__(() => (<div>{moment().format('MMMM Do YYYY, h:mm:ss a')}</div>)));
   const __fdList = __().__((val) => (__.log.t = val));
-  const __lists = __(true).__((__list) => {
-    __fdList.t = __lists.length;
-    return __list;
-  });
+  const __lists = __(true).__((__list) => (__fdList.t = __lists.length));
   const ListofListElement = __Element(__([__lists])
     .__(() => ((__lists).map((list, i) => (
       <button onClick = {() => (__.log.t = __fdList.t = i)}>{'List#' + (i + 1)}</button>)))));
