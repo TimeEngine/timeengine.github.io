@@ -708,9 +708,7 @@ const TodoElement = () => {
   const InputElement = () => {
     const __value = __();
     const onChange = (e) => (__value.t = e.target.value);
-    const onClick = () => {
-      __.log.t = __lists[__focusedList.t].t = __value.t;
-    };
+    const onClick = () => (__.log.t = __lists[__focusedList.t].t = __value.t);
     const onClickNL = () => {
       __lists.t = __(true); //new items-list
       __.log.t = 'newList';
