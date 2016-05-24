@@ -706,10 +706,7 @@ const TodoElement = () => {
     const __value = __();
     const onChange = (e) => (__value.t = e.target.value);
     const onClick = () => (__.log.t = __lists[__fdList.t].t = __value.t);
-    const onClickNL = () => {
-      __lists.t = __(true); //new items-list
-      __.log.t = 'newList';
-    };
+    const onClickNL = () => (__.log.t = __lists.t = __(true));
     const __seqEl = __([__value]).__((value) => (<div>
           <h4>{'List#' + (__fdList.t + 1)}
           <button onClick = {onClickNL}>{'NewList'}</button></h4>
